@@ -1,7 +1,7 @@
 import View from './View.js';
 
 import icons from 'url:../../img/icons.svg';
-import { Fraction } from 'fractional';
+import Fraction from 'fraction.js';
 
 class RecipeView extends View {
   _parentElement = document.querySelector('.recipe');
@@ -38,9 +38,8 @@ class RecipeView extends View {
   _generateMarkup() {
     return `
     <figure class="recipe__fig">
-      <img src="${this._data.image}" alt="${
-      this._data.title
-    }" class="recipe__img">
+      <img src="${this._data.image}" alt="${this._data.title
+      }" class="recipe__img">
       <h1 class="recipe__title">
       <span>${this._data.title}</span>
       <h1>
@@ -51,9 +50,8 @@ class RecipeView extends View {
         <svg class="recipe__info-icon">
           <use href="${icons}#icon-clock"></use>
         </svg>
-        <span class="recipe__info-data recipe__info-data--minutes">${
-          this._data.cookingTime
-        }</span>
+        <span class="recipe__info-data recipe__info-data--minutes">${this._data.cookingTime
+      }</span>
         <span class="recipe__info-text">minutes</span>
       </div>
 
@@ -67,17 +65,15 @@ class RecipeView extends View {
         <span class="recipe__info-text">servings</span>
 
         <div class="recipe__info-buttons">
-          <button data-update-to="${
-            this._data.servings - 1
-          }" class="btn--tiny btn--update-servings">
+          <button data-update-to="${this._data.servings - 1
+      }" class="btn--tiny btn--update-servings">
             <svg>
               <use href="${icons}#icon-minus-circle"></use>
             </svg>
           </button>
 
-          <button data-update-to="${
-            +this._data.servings + 1 // type corecsion
-          }" class="btn--tiny btn--update-servings">
+          <button data-update-to="${+this._data.servings + 1 // type corecsion
+      }" class="btn--tiny btn--update-servings">
             <svg>
               <use href="${icons}#icon-plus-circle"></use>
             </svg>
@@ -92,9 +88,8 @@ class RecipeView extends View {
       </div>
       <button class="btn--round btn--bookmark">
         <svg class="">
-          <use href="${icons}#icon-bookmark${
-      this._data.bookmarked ? '-fill' : ''
-    }"></use>
+          <use href="${icons}#icon-bookmark${this._data.bookmarked ? '-fill' : ''
+      }"></use>
         </svg>
       </button>
     </div>
@@ -134,8 +129,7 @@ class RecipeView extends View {
       <svg class="recipe__icon">
         <use href="${icons}#icon-check"></use>
       </svg>
-      <div class="recipe__quantity">${
-        ing.quantity ? new Fraction(ing.quantity).toString() : ''
+      <div class="recipe__quantity">${ing.quantity ? new Fraction(ing.quantity).toString() : ''
       }</div>
       <div class="recipe__unit">
         <span class="recipe__unit">${ing.unit}</span>
